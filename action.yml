@@ -57,7 +57,7 @@ runs:
     shell: bash
 
   - name: Notify slack
-    if: ${{ github.event_name == 'release' && inputs.slack_webhook_url != '' }}
+    if: ${{ inputs.slack_webhook_url != '' }}
     env:
       MESSAGE: "${{ github.event.repository.owner.login }}/${{ github.event.repository.name }}:${{ inputs.image_tag }} has been pushed to GCP Artifact Registry"
     run: |
